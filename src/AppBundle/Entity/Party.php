@@ -32,7 +32,7 @@ class Party
 
     /**
      * @Assert\NotBlank()
-     * @Assert\Range(min=0
+     * @Assert\Range(min=0)
      * @ORM\Column(type="integer")
      */
     private $price;
