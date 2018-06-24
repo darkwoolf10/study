@@ -1,5 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    hello
+    <div class="container">
+        {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_row(form.toy, {'attr': {'class': 'form-control'}} )}}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.date, {'attr': {'class': 'form-control date', 'type': 'text'}} )}}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.price, {'attr': {'class': 'form-control'}} )}}
+            </div>
+            <div class="form-group">
+                {{ form_row(form.quntity, {'attr': {'class': 'form-control'}} )}}
+            </div>
+                {{ form_row(form.save, {'attr': {'class': 'btn btn-primary pull-right'}}) }}
+        {{ form_end(form) }}
+    </div>
 {% endblock %}
