@@ -3,8 +3,10 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Party;
+use AppBundle\Entity\Shop;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -25,10 +27,10 @@ class PartyController extends Controller
         $form = $this->createFormBuilder($party)
             ->add('toy', ChoiceType::class, [
                 'choices'  => array(
-                    'soft toy' => true,
-                    'doll' => true,
-                    'model of technology' => true,
-                    'constructor' => true,
+                    'soft toy' => 'soft toy',
+                    'doll' => 'soft toy',
+                    'model of technology' => 'soft toy',
+                    'constructor' => 'soft toy',
                 ),
             ])
             ->add('date', DateType::class, [
@@ -42,6 +44,10 @@ class PartyController extends Controller
             ->add('quntity', IntegerType::class)
             ->add('save', SubmitType::class, [
                 'label' => 'Create Party',
+            ])
+            ->add('shop', EntityType::class, [
+                'class' => Shop::class,
+                'choice_label' => 'id',
             ])
             ->getForm();
         $form->handleRequest($request);

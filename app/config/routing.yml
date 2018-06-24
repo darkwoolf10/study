@@ -4,4 +4,8 @@ app:
 
 part:
     path: /party
-    defaults: { _controller: WoolfBundle:Party:party }
+    defaults: { _controller: AppBundle:Party:index }
+
+shop_add:
+    path: /shop/add
+    defaults: { _controller: AppBundle:Shop:addShop }
