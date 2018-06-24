@@ -25,10 +25,10 @@ class PartyController extends Controller
         $form = $this->createFormBuilder($party)
             ->add('toy', ChoiceType::class, [
                 'choices'  => array(
-                    'soft toy' => null,
-                    'doll' => null,
-                    'model of technology' => null,
-                    'constructor' => null,
+                    'soft toy' => true,
+                    'doll' => true,
+                    'model of technology' => true,
+                    'constructor' => true,
                 ),
             ])
             ->add('date', DateType::class, [
