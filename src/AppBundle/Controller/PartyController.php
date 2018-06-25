@@ -2,16 +2,10 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\Type\PartyType;
 use AppBundle\Entity\Party;
-use AppBundle\Entity\Shop;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\MoneyType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 class PartyController extends Controller
@@ -21,35 +15,9 @@ class PartyController extends Controller
      */
     public function indexAction(Request $request)
     {
-
         $party = new Party();
 
-        $form = $this->createFormBuilder($party)
-            ->add('toy', ChoiceType::class, [
-                'choices'  => array(
-                    'soft toy' => 'soft toy',
-                    'doll' => 'soft toy',
-                    'model of technology' => 'soft toy',
-                    'constructor' => 'soft toy',
-                ),
-            ])
-            ->add('date', DateType::class, [
-                'widget' => 'single_text',
-                // adds a class that can be selected in JavaScript
-                'attr' => ['class' => 'js-datepicker'],
-            ])
-            ->add('price', MoneyType::class, [
-                'currency'=>'USD',
-            ])
-            ->add('quntity', IntegerType::class)
-            ->add('save', SubmitType::class, [
-                'label' => 'Create Party',
-            ])
-            ->add('shop', EntityType::class, [
-                'class' => Shop::class,
-                'choice_label' => 'id',
-            ])
-            ->getForm();
+        $form = $this->createForm(PartyType::class, $party);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

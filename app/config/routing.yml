@@ -2,7 +2,7 @@ app:
     resource: '@AppBundle/Controller/'
     type: annotation
 
-part:
+party:
     path: /party
     defaults: { _controller: AppBundle:Party:index }
 

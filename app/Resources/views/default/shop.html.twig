@@ -11,14 +11,14 @@
                 <div class="card">
                     <div class="card-header" id="heading{{ shop.id }}">
                         <h5 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{ shop.id }}" aria-expanded="true" aria-controls="collapse{{ shop.id }}">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{ shop.id }}" aria-expanded="false" aria-controls="collapse{{ shop.id }}">
                                 Shop №{{ shop.id }}
                             </button>
                         </h5>
                     </div>
-                    <div id="collapse{{ shop.id }}" class="collapse show" aria-labelledby="heading{{ shop.id }}" data-parent="#accordionExample">
+                    <div id="collapse{{ shop.id }}" class="collapse hidden" aria-labelledby="heading{{ shop.id }}" data-parent="#accordionExample">
                         <div class="card-body">
-
+                            {{ dump(shop.party) }}
                         </div>
                     </div>
                 </div>

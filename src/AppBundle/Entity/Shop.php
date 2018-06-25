@@ -21,7 +21,6 @@ class Shop
 
     /**
      * @ORM\OneToMany(targetEntity="Party", mappedBy="shop")
-     * @ORM\JoinColumn(name="shop_id", referencedColumnName="id")
      */
     private $party;
 

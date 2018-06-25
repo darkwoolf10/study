@@ -45,6 +45,7 @@ class Party
 
     /**
      * @ORM\ManyToOne(targetEntity="Shop", inversedBy="party")
+     * @ORM\JoinColumn(name="shop_id", referencedColumnName="id")
      */
     private $shop;
 
