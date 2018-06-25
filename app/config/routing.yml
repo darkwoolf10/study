@@ -6,6 +6,10 @@ party:
     path: /party
     defaults: { _controller: AppBundle:Party:index }
 
+shop:
+    path: /shop
+    defaults: { _controller: AppBundle:Shop:index }
+
 shop_add:
     path: /shop/add
     defaults: { _controller: AppBundle:Shop:addShop }

@@ -1,6 +1,6 @@
 {% block body %}
     {% for party in partys %}
-        <a href="{{ path('del_toy', {id: party.id}) }}"><button class="btn btn-danger float-right">Delete from party</button></a>
+        <a href="{{ path('del_toy', {id: party.id}) }}"><button class="btn btn-danger float-right">Bye toy</button></a>
         Party id: {{ party.id }}<br>
         Toy: {{ party.toy }}<br>
         Quntity: {{ party.quntity }}<br>
