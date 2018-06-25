@@ -15,7 +15,7 @@ class ShopController extends Controller
     /**
      * @Route("/shop", name="shop")
      */
-    function indexAction(Request $request, EntityManagerInterface $em)
+    function indexAction(Request $request)
     {
         $repository = $this->getDoctrine()->getRepository(Shop::class);
         $shops = $repository->findAll();
@@ -25,18 +25,20 @@ class ShopController extends Controller
         ]);
     }
 
-//    /**
-//     * @Route("/shop/{shop_id}", name="shop_id")
-//     */
-//    function showAction($shop_id)
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//        $repository = $em->getRepository('AppBundle:Shop');
-//        $shop = $em->getRepository('AppBundle:Party')->find($shop_id);
-//        $party = $this->getParty();
-//        $com = $em->getRepository(Likes::class)->findOneBy(['user' => $shop, 'post' => $party]);
-//        return new JsonResponse(['party' => $com]);
-//    }
+    /**
+     * @Route("/shop/{shop_id}", name="shop_id")
+     */
+    function showAction($shop_id, EntityManagerInterface $em)
+    {
+        $shop = $em->getRepository('AppBundle:Shop')
+            ->find($shop_id);
+
+        $partys = $shop->getParty();
+
+        return $this->render('default/show.html.twig', [
+            'partys'=>$partys,
+        ]);
+    }
 
     /**
      * @Route("/shop/add", name="shop_add")

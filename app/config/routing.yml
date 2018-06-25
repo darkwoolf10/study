@@ -9,3 +9,7 @@ party:
 shop_add:
     path: /shop/add
     defaults: { _controller: AppBundle:Shop:addShop }
+
+del_toy:
+    path: /party/{id}/del
+    defaults: { _controller: AppBundle:Party:delToy }

@@ -99,6 +99,11 @@ class Party
         $this->quntity = $quntity;
     }
 
+    public function delToy()
+    {
+        $this->quntity--;
+    }
+
     public function getShop()
     {
         return $this->shop;

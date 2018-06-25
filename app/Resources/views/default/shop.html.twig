@@ -3,6 +3,7 @@
     <div class="container">
         <h1 style="display: inline-block">Store information:</h1>
         <div class="float-right">
+            <a href="{{ path('party') }}" class="btn btn-primary">Add party</a>
             <button class="btn btn-primary createShop">+</button>
         </div>
 
@@ -18,7 +19,9 @@
                     </div>
                     <div id="collapse{{ shop.id }}" class="collapse hidden" aria-labelledby="heading{{ shop.id }}" data-parent="#accordionExample">
                         <div class="card-body">
-                            {{ dump(shop.party) }}
+                            {{ render(controller(
+                                'AppBundle:Shop:show', {shop_id: shop.id}
+                            )) }}
                         </div>
                     </div>
                 </div>
