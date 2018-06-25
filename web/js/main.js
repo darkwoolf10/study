@@ -1,12 +1,13 @@
 $(document).on('click', 'button.createShop', function(){
     $.ajax({
-        url:  "shop/add",
+        url:  "add/shop",
         type: "POST",
         dataType: "json",
         async: true,
         success: function (data)
         {
             console.log("Create shop");
+
         }
     });
     return false;

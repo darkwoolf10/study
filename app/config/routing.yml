@@ -11,7 +11,7 @@ shop:
     defaults: { _controller: AppBundle:Shop:index }
 
 shop_add:
-    path: /shop/add
+    path: /add/shop
     defaults: { _controller: AppBundle:Shop:addShop }
 
 del_shop:

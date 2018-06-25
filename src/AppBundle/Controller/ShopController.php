@@ -26,22 +26,7 @@ class ShopController extends Controller
     }
 
     /**
-     * @Route("/shop/{shop_id}", name="shop_id")
-     */
-    function showAction($shop_id, EntityManagerInterface $em)
-    {
-        $shop = $em->getRepository('AppBundle:Shop')
-            ->find($shop_id);
-
-        $partys = $shop->getParty();
-
-        return $this->render('default/show.html.twig', [
-            'partys'=>$partys,
-        ]);
-    }
-
-    /**
-     * @Route("/shop/add", name="shop_add")
+     * @Route("/add/shop", name="shop_add")
      */
     public function addShopAction()
     {
@@ -50,8 +35,11 @@ class ShopController extends Controller
         $em->persist($shop);
         $em->flush();
 
-        return new JsonResponse(['result' => 'create']);
+//        return new JsonResponse(['result' => 'create']);
+        return $this->redirectToRoute('shop');
     }
+
+
 
     /**
      * @Route("/shop/{id}/del", name="del_shop")

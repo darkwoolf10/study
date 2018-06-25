@@ -36,6 +36,24 @@ class PartyController extends Controller
     }
 
     /**
+     * @Route("/shop/{shop_id}")
+     */
+    function showAction($shop_id, EntityManagerInterface $em)
+    {
+        $repository = $em->getRepository('AppBundle:Shop');
+        $shop = $repository->find($shop_id);
+
+        if(!$shop) {
+            throw $this->createNotFoundException('Shop not found');
+        }
+        $partys = $shop->getParty();
+
+        return $this->render('default/show.html.twig', [
+            'partys'=>$partys,
+        ]);
+    }
+
+    /**
      * @Route("/party/{id}/del", name="del_toy")
      */
     public function delToyAction($id, EntityManagerInterface $em)
