@@ -15,7 +15,7 @@
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{ shop.id }}" aria-expanded="false" aria-controls="collapse{{ shop.id }}">
                                 Shop №{{ shop.id }}
                             </button>
-                            <button class="btn btn-danger float-right"><i class="fas fa-trash-alt fa-sm"></i></button>
+                            <a href="{{ path('del_shop', {id: shop.id}) }}" class="btn btn-danger float-right delShop"><i class="fas fa-trash-alt fa-sm"></i></a>
                         </h5>
                     </div>
                     <div id="collapse{{ shop.id }}" class="collapse hidden" aria-labelledby="heading{{ shop.id }}" data-parent="#accordionExample">

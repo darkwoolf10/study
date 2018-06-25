@@ -20,7 +20,10 @@ class Shop
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Party", mappedBy="shop")
+     * @ORM\OneToMany(targetEntity="Party",
+     *      mappedBy="shop",
+     *      orphanRemoval=true,
+     *     cascade={"persist"})
      */
     private $party;
 

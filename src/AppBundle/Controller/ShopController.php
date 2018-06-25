@@ -54,15 +54,15 @@ class ShopController extends Controller
     }
 
     /**
-     * @Route("/shop/{id}/del", name="del_shop  ")
+     * @Route("/shop/{id}/del", name="del_shop")
      */
     public function deleteAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $shop = $em->getRepository('WoolfBundle:Post')->find($id);
+        $shop = $em->getRepository('AppBundle:Shop')->find($id);
         $em->remove($shop);
         $em->flush();
 
-        return new JsonResponse(['result' => 'delete']);
+        return $this->redirectToRoute('shop');
     }
 }
