@@ -54,7 +54,7 @@ class ShopController extends Controller
     }
 
     /**
-     * @Route("/shop/{id}/del", name="party")
+     * @Route("/shop/{id}/del", name="del_shop  ")
      */
     public function deleteAction($id)
     {

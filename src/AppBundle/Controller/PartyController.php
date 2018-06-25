@@ -26,7 +26,7 @@ class PartyController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($party);
             $em->flush();
-            return $this->redirectToRoute('party');
+            return $this->redirectToRoute('shop');
         }
 
         // replace this example code with whatever you need
