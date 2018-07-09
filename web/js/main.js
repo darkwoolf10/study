@@ -16,7 +16,7 @@ $(document).on('click', 'button.createShop', function(){
 // Bye toy
 $(document).on('click', 'button.byeToy', function(){
     $.ajax({
-        url: "/party/" + $(this).attr("data-party-id") + "/del",
+        url: Routing.generate('del_toy', {id: $(this).attr("data-party-id")}),
         type: "POST",
         dataType: "json",
         async: true,
@@ -25,8 +25,21 @@ $(document).on('click', 'button.byeToy', function(){
             var element = $(".quntityToy" + data.party_id);
             quntityToy = element.html() -1;
             element.html(quntityToy);
-            console.log(element.html());
-            console.log("-->", data);
+        }
+    });
+    return false;
+});
+
+$(document).on('click', 'button.delShop', function(){
+    $.ajax({
+        url: Routing.generate('delete_shop', {id: $(this).attr("data-shop-id")}),
+        // url:  "/del/" + $(this).attr("data-shop-id") + "/shop",
+        type: "POST",
+        dataType: "json",
+        async: true,
+        success: function (data)
+        {
+            $(".shop" + data.shop_id).remove(".shop" + data.shop_id);
         }
     });
     return false;

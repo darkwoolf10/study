@@ -10,13 +10,13 @@
 
         <div class="accordion" id="accordionExample">
             {% for shop in shops %}
-                <div class="card">
+                <div class="card shop{{ shop.id }}">
                     <div class="card-header" id="heading{{ shop.id }}">
                         <h5 class="mb-0">
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{ shop.id }}" aria-expanded="false" aria-controls="collapse{{ shop.id }}">
                                 Shop №{{ shop.id }}
                             </button>
-                            <button href="{{ path('del_shop', {id: shop.id}) }}" class="btn btn-danger float-right delShop"><i class="fas fa-trash-alt fa-sm"></i></button>
+                            <button class="btn btn-danger float-right delShop"  data-shop-id="{{ shop.id }}"><i class="fas fa-trash-alt fa-sm"></i></button>
                         </h5>
                     </div>
                     <div id="collapse{{ shop.id }}" class="collapse hidden" aria-labelledby="heading{{ shop.id }}" data-parent="#accordionExample">

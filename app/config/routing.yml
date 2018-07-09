@@ -17,10 +17,14 @@ shop_add:
     path: /add/shop
     defaults: { _controller: AppBundle:Shop:addShop }
 
-del_shop:
-    path: /shop/{id}/del
+delete_shop:
+    path: /del/{id}/shop
     defaults: { _controller: AppBundle:Shop:delete }
+    options:
+        expose: true
 
 del_toy:
     path: /party/{id}/del
     defaults: { _controller: AppBundle:Party:delToy }
+    options:
+        expose: true

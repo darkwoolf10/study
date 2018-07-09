@@ -42,7 +42,7 @@ class ShopController extends Controller
 
 
     /**
-     * @Route("/shop/{id}/del", name="del_shop")
+     * @Route("/del/{id}/shop", name="delete_shop")
      */
     public function deleteAction($id)
     {
@@ -51,6 +51,9 @@ class ShopController extends Controller
         $em->remove($shop);
         $em->flush();
 
-        return $this->redirectToRoute('shop');
+        return new JsonResponse([
+            'result' => 'Delete shop',
+            'shop_id' => $id,
+        ]);
     }
 }
