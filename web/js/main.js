@@ -13,17 +13,21 @@ $(document).on('click', 'button.createShop', function(){
     return false;
 });
 
-// $(document).on('click', 'button.delShop', function(){
-//     $.ajax({
-//         url:  Routing.generate('delShop', {postId: $(".delShop").attr("data-shop-id")}),
-//         type: "POST",
-//         dataType: "json",
-//         async: true,
-//         success: function (data)
-//         {
-//
-//             console.log("Delete shop");
-//         }
-//     });
-//     return false;
-// });
+// Bye toy
+$(document).on('click', 'button.byeToy', function(){
+    $.ajax({
+        url: "/party/" + $(this).attr("data-party-id") + "/del",
+        type: "POST",
+        dataType: "json",
+        async: true,
+        success: function (data)
+        {
+            var element = $(".quntityToy" + data.party_id);
+            quntityToy = element.html() -1;
+            element.html(quntityToy);
+            console.log(element.html());
+            console.log("-->", data);
+        }
+    });
+    return false;
+});

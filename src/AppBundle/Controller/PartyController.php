@@ -8,6 +8,7 @@ use AppBundle\Entity\Party;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class PartyController extends Controller
@@ -69,6 +70,9 @@ class PartyController extends Controller
             $em->persist($party);
             $em->flush();
         }
-        return $this->redirectToRoute('shop');
+        return new JsonResponse([
+            "result" => "bye toy",
+            "party_id" => $party->getId(),
+        ]);
     }
 }

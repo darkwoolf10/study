@@ -1,9 +1,9 @@
 {% block body %}
     {% for party in partys %}
-        <a href="{{ path('del_toy', {id: party.id}) }}"><button class="btn btn-danger float-right">Bye toy</button></a>
+        <button class="btn btn-danger float-right byeToy" data-party-id = "{{ party.id }}">Bye toy</button>
         Party id: {{ party.id }}<br>
         Toy: {{ party.toy }}<br>
-        Quntity: {{ party.quntity }}<br>
+        Quntity: <span class="quntityToy{{ party.id }}">{{ party.quntity }}</span><br>
         Date: {{ party.date |date('Y-m-d') }}<br>
         <hr>
     {% endfor %}
